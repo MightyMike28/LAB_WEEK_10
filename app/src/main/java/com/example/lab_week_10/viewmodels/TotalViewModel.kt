@@ -1,0 +1,19 @@
+package com.example.lab_week_10.viewmodels
+
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+
+class TotalViewModel : ViewModel() {
+    private val _total = MutableLiveData<Int>().apply { postValue(0) }
+    val total: LiveData<Int> = _total
+
+    fun incrementTotal() {
+        _total.postValue((_total.value ?: 0) + 1)
+    }
+
+    // Optional (digunakan nanti oleh Room)
+    fun setTotal(newTotal: Int) {
+        _total.postValue(newTotal)
+    }
+}
