@@ -25,8 +25,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun prepareViewModel() {
-        // observe LiveData
+        // Observe the LiveData object
         viewModel.total.observe(this) { total ->
+            // Whenever the value of the LiveData object changes,
+            // updateText() is called with the new value
             updateText(total)
         }
 
